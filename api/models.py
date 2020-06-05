@@ -29,3 +29,10 @@ class Salary(models.Model):
     value = models.FloatField()
     discounts = models.FloatField()
     user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='salaries')
+
+    def __str__(self):
+        return 'Salário do(a) {} em {}.'.format(self.user, self.date.strftime("%d/%m/%Y"))
+
+    class Meta:
+        verbose_name = "Salary"
+        verbose_name_plural = "Salaries"

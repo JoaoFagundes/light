@@ -28,4 +28,4 @@ class Salary(models.Model):
     date = models.DateField()
     value = models.FloatField()
     discounts = models.FloatField()
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='salaries')

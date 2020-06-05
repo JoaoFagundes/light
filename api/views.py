@@ -23,4 +23,12 @@ class StatisticViewSet(viewsets.ViewSet):
 
         return Response(StatisticSerializer(query).data)
 
+    def retrieve(self, request, pk=None):
+        query = Salary.objects.filter(user_id=pk).aggregate(avg_salaries=Avg('value'),
+                                                            avg_discounts=Avg('discounts'),
+                                                            max_salary=Max('value'),
+                                                            min_salary=Min('value'))
+
+        return Response(StatisticSerializer(query).data)
+
 

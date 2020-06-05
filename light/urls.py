@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 from .api import router as api_router
 
-print(api_router.urls)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(api_router.urls)),

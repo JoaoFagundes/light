@@ -12,7 +12,6 @@ class User(models.Model):
 
     def save(self, *args, **kwargs):
         formatted_cpf = re.search("^((\d){3}.){2}(\d){3}-(\d){2}$", self.cpf)
-        print(formatted_cpf)
         if not formatted_cpf:
             self.cpf = '{0}.{1}.{2}-{3}'.format(self.cpf[:3],
                                                 self.cpf[3:6],

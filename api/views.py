@@ -5,11 +5,11 @@ from api.models import User, Salary
 from api.serializers import UserSerializer, SalarySerializer, StatisticSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = User.objects.all().order_by('id')
     serializer_class = UserSerializer
 
 class SalaryViewSet(viewsets.ModelViewSet):
-    queryset = Salary.objects.all()
+    queryset = Salary.objects.all().order_by('id')
     serializer_class = SalarySerializer
 
 class StatisticViewSet(viewsets.ViewSet):

@@ -10,6 +10,8 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/src
+    environment:
+      - POSTGRES_PASSWORD=light1234
     ports:
       - "8000:8000"
     depends_on:

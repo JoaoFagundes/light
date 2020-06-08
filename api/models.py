@@ -1,6 +1,6 @@
 import re
 from django.db import models
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MaxValueValidator
 
 class User(models.Model):
     name = models.CharField(max_length=50)
@@ -10,6 +10,10 @@ class User(models.Model):
                            ])
     date_of_birth = models.DateField()
 
+    '''
+        Overriding the `save` method for this model allows me to run, in this case, a regex formatter for the cpf field.
+        This is done to avoid rewriting DRF's layout template to add a mask in the input field.
+    '''
     def save(self, *args, **kwargs):
         formatted_cpf = re.search("^((\d){3}.){2}(\d){3}-(\d){2}$", self.cpf)
         if not formatted_cpf:

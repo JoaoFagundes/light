@@ -8,12 +8,14 @@ Make sure to have the port `8000` free since these instructions consider this is
 
 ## Requirements
 
-Attention: this project was idealized to be ran through Docker, so it is recommended to install make sure you have docker and docker-compose in your machine before proceding. With docker installed, just jump this section and go directly to [Using Docker](#using-docker) below.
+The project's requirements are present in the `requirements.txt` file and also Python3, which is not present in the requirements file. So, what you will need for this project is Python3, `Django`, `Djangorestframework` and `psycopg`.
 
-Alternatively, the project's requirements are present in the `requirements.txt` file, so using a package manager such as `pip` is enough to install it through the `pip install -r requirements.txt` command from the project's root directory. After installing the dependencies, the project is ready to run. So, run the command
+*Attention: this project was idealized to be ran through Docker, so it is recommended to install make sure you have docker and docker-compose in your machine before proceding. With docker installed, just jump this section and go directly to [Using Docker](#using-docker) below.*
+
+Alternatively, using a package manager such as `pip` is enough to install the dependencies through the `pip3 install -r requirements.txt` command from the project's root directory. After installing the dependencies, make sure to add your local postgres configuration such as host, port, password and etc. in `settings.py` file. With that configured, you need to run the database migrations by running `python3 manage.py migrate`, and after that the project is ready to run. So, run the command
 
 ```
-python manage.py runserver 0.0.0.0:8000
+python3 manage.py runserver 0.0.0.0:8000
 ```
 
 and it should be enough.
